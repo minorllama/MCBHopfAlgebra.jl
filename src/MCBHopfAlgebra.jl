@@ -5,5 +5,5 @@ module MCBHopfAlgebra
 
 
   include("tree_combinatorics.jl")
-  include("pytree.jl")
+  include("pynlptree.jl")
 end
