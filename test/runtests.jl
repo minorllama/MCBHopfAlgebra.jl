@@ -2,5 +2,5 @@ using MCBHopfAlgebra
 using Test
 
 @testset "MCBHopfAlgebra.jl" begin
-    # Write your tests here.
+    @test true  # placeholder for CI
 end
