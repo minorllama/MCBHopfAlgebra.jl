@@ -6,8 +6,7 @@ mutable struct Node
 end
 LeafType=Union{Node, Nothing}
 
-
-
+const leaf_index = [1, 2]
 
 function  node_from(name::Int, left::LeafType, right::LeafType)::Node
     leaves = Vector{LeafType}()
@@ -130,8 +129,9 @@ function tree_nodes(root)::Vector{Int}
             e = dequeue!(q)
             push!(nodes, e.name)
             if !is_leaf(e)
-                enqueue!(q, e.leaves[1])
-                enqueue!(q, e.leaves[2])
+                for idx in leaf_index
+                    if !isnothing(e.leaves[idx]) enqueue!(q, e.leaves[idx]) end
+                end
             end
         end
     end
@@ -167,43 +167,7 @@ end
 
 
 
-struct TreeCut
-    trunk::LeafType
-    branch::LeafType
-    cut_point::Int
-end
 
-function as_str(t::TreeCut)
-    as_str(t.trunk) * " ⨂ " * as_str(t.branch)
-end
-
-function tree_spliced(root::LeafType, cutting::Int)
-    nodes = Queue{Node}()
-    enqueue!(nodes, root)
-    while !isempty(nodes)
-        current = dequeue!(nodes)
-        for i= [1, 2]
-            e = current.leaves[i]
-            if !isnothing(e)
-                if e.name == cutting
-                    current.leaves[i] = new_leaf(0::Int)
-                    return node_from(0, e, nothing)
-                end
-                enqueue!(nodes, e)
-            end
-        end
-    end
-    return nothing
-end
-
-function tree_cut_above(tree::LeafType, cutting::Int)::TreeCut
-    trunk = tree_clone(tree)
-    if trunk.name == cutting
-        TreeCut(trunk, nothing, cutting) # trunk is always the one that contains root named -1
-    else
-        TreeCut(trunk, tree_spliced(trunk, cutting), cutting)
-    end
-end
 
 
 
