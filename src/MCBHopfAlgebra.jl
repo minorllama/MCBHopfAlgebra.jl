@@ -4,7 +4,6 @@ module MCBHopfAlgebra
   include("adjacency.jl")
   include("traversals_recursive.jl")
   include("tree_combinatorics.jl")
-  include("pynlptree.jl")
-
   include("treeplot.jl")
+  include("internal_merge.jl")
 end

@@ -39,3 +39,19 @@ function example(;console=true)
     show(treeplot(t.branch, "t1:branch"))
     show(treeplot(t.trunk, "t1:trunk"))
 end
+
+
+
+    module Tests
+        import GraphPlot
+        using ..TreeNode
+        using ..TreeUtils
+        function test_treeplot()
+            tree = TreeNode.Examples.example_tree()
+            println(TreeNode.as_str(tree) )
+            fname = "./example.svg"
+            GraphPlot.saveplot(TreeUtils.plot(tree, "example tree"), fname)
+            println(fname)
+            return fname
+        end
+    end

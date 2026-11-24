@@ -95,7 +95,7 @@ struct PrunedCut
     unpruned::FirstCut
 end
 
-function cut_and_prune(tree::LeafType, cut_point::Int)::PrunedCut
+function tree_cut_and_prune(tree::LeafType, cut_point::Int)::PrunedCut
     cut = cut_above(tree, cut_point)
     pruned_trunk = prune_trunk(cut.trunk)
     pruned_branch = prune_branch(cut.branch)
