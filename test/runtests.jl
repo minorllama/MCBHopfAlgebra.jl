@@ -2,5 +2,6 @@ using MCBHopfAlgebra
 using Test
 
 @testset "MCBHopfAlgebra.jl" begin
-    @test true  # placeholder for CI
+    include("internal_merge_tests.jl")
+    include("external_merge_tests.jl")
 end

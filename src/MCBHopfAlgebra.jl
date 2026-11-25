@@ -6,4 +6,5 @@ module MCBHopfAlgebra
   include("tree_combinatorics.jl")
   include("treeplot.jl")
   include("internal_merge.jl")
+  include("external_merge.jl")
 end
