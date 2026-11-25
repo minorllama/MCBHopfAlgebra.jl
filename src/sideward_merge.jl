@@ -1,9 +1,8 @@
 module SidewardMerge
 
 import ..MCBHopfAlgebra as mcb
-import ..InternalMerge: SubtreePath, get_subtree, is_full_binary_tree, _delete, _fresh_name
+import ..Workspace: _delete, _fresh_name, Node, SubtreePath, get_subtree, is_full_binary_tree
 
-const Node = mcb.Node
 export sideward_merge
 
 _prefix(p, q) = length(p) <= length(q) && all(p[i] == q[i] for i in eachindex(p))

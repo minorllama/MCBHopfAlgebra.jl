@@ -5,6 +5,7 @@ module MCBHopfAlgebra
   include("traversals_recursive.jl")
   include("tree_combinatorics.jl")
   include("treeplot.jl")
+  include("workspace.jl")
   include("internal_merge.jl")
   include("external_merge.jl")
   include("sideward_merge.jl")
