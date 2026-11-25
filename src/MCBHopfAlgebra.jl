@@ -7,4 +7,5 @@ module MCBHopfAlgebra
   include("treeplot.jl")
   include("internal_merge.jl")
   include("external_merge.jl")
+  include("sideward_merge.jl")
 end
